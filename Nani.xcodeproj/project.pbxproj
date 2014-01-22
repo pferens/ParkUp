@@ -21,6 +21,21 @@
 		E9FAD3C0188ECB8900566F9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3A2188ECB8900566F9F /* UIKit.framework */; };
 		E9FAD3C8188ECB8900566F9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9FAD3C6188ECB8900566F9F /* InfoPlist.strings */; };
 		E9FAD3CA188ECB8900566F9F /* NaniTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FAD3C9188ECB8900566F9F /* NaniTests.m */; };
+		E9FAD3D4188ECD0000566F9F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3D3188ECD0000566F9F /* Parse.framework */; };
+		E9FAD3D6188ECF3F00566F9F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3D5188ECF3F00566F9F /* AudioToolbox.framework */; };
+		E9FAD3D8188ECF5300566F9F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3D7188ECF5300566F9F /* Accounts.framework */; };
+		E9FAD3DA188ECF5A00566F9F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3D9188ECF5A00566F9F /* AdSupport.framework */; };
+		E9FAD3DC188ECF6100566F9F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3DB188ECF6100566F9F /* CFNetwork.framework */; };
+		E9FAD3DE188ECF7000566F9F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3DD188ECF7000566F9F /* CoreLocation.framework */; };
+		E9FAD3E0188ECF7C00566F9F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3DF188ECF7C00566F9F /* libsqlite3.dylib */; };
+		E9FAD3E2188ECF8A00566F9F /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3E1188ECF8A00566F9F /* libz.1.1.3.dylib */; };
+		E9FAD3E4188ECF9100566F9F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3E3188ECF9100566F9F /* MobileCoreServices.framework */; };
+		E9FAD3E6188ECF9700566F9F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3E5188ECF9700566F9F /* QuartzCore.framework */; };
+		E9FAD3E8188ECF9E00566F9F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3E7188ECF9E00566F9F /* Security.framework */; };
+		E9FAD3EA188ECFA600566F9F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3E9188ECFA600566F9F /* Social.framework */; };
+		E9FAD3EC188ECFAC00566F9F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3EB188ECFAC00566F9F /* StoreKit.framework */; };
+		E9FAD3EE188ECFB400566F9F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3ED188ECFB400566F9F /* SystemConfiguration.framework */; };
+		E9FAD3F0188FD07700566F9F /* Leather_Wallet_iPhone_Case_H_Cognac-glass-background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9FAD3EF188FD07700566F9F /* Leather_Wallet_iPhone_Case_H_Cognac-glass-background.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +68,21 @@
 		E9FAD3C5188ECB8900566F9F /* NaniTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NaniTests-Info.plist"; sourceTree = "<group>"; };
 		E9FAD3C7188ECB8900566F9F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E9FAD3C9188ECB8900566F9F /* NaniTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NaniTests.m; sourceTree = "<group>"; };
+		E9FAD3D3188ECD0000566F9F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		E9FAD3D5188ECF3F00566F9F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		E9FAD3D7188ECF5300566F9F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		E9FAD3D9188ECF5A00566F9F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		E9FAD3DB188ECF6100566F9F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		E9FAD3DD188ECF7000566F9F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E9FAD3DF188ECF7C00566F9F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		E9FAD3E1188ECF8A00566F9F /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		E9FAD3E3188ECF9100566F9F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		E9FAD3E5188ECF9700566F9F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E9FAD3E7188ECF9E00566F9F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E9FAD3E9188ECFA600566F9F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		E9FAD3EB188ECFAC00566F9F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		E9FAD3ED188ECFB400566F9F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E9FAD3EF188FD07700566F9F /* Leather_Wallet_iPhone_Case_H_Cognac-glass-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Leather_Wallet_iPhone_Case_H_Cognac-glass-background.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +90,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9FAD3EE188ECFB400566F9F /* SystemConfiguration.framework in Frameworks */,
+				E9FAD3EC188ECFAC00566F9F /* StoreKit.framework in Frameworks */,
+				E9FAD3EA188ECFA600566F9F /* Social.framework in Frameworks */,
+				E9FAD3E8188ECF9E00566F9F /* Security.framework in Frameworks */,
+				E9FAD3E6188ECF9700566F9F /* QuartzCore.framework in Frameworks */,
+				E9FAD3E4188ECF9100566F9F /* MobileCoreServices.framework in Frameworks */,
+				E9FAD3E2188ECF8A00566F9F /* libz.1.1.3.dylib in Frameworks */,
+				E9FAD3E0188ECF7C00566F9F /* libsqlite3.dylib in Frameworks */,
+				E9FAD3DE188ECF7000566F9F /* CoreLocation.framework in Frameworks */,
 				E9FAD3A1188ECB8900566F9F /* CoreGraphics.framework in Frameworks */,
+				E9FAD3DC188ECF6100566F9F /* CFNetwork.framework in Frameworks */,
+				E9FAD3DA188ECF5A00566F9F /* AdSupport.framework in Frameworks */,
+				E9FAD3D8188ECF5300566F9F /* Accounts.framework in Frameworks */,
+				E9FAD3D6188ECF3F00566F9F /* AudioToolbox.framework in Frameworks */,
 				E9FAD3A3188ECB8900566F9F /* UIKit.framework in Frameworks */,
+				E9FAD3D4188ECD0000566F9F /* Parse.framework in Frameworks */,
 				E9FAD39F188ECB8900566F9F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +126,7 @@
 		E9FAD392188ECB8900566F9F = {
 			isa = PBXGroup;
 			children = (
+				E9FAD3D3188ECD0000566F9F /* Parse.framework */,
 				E9FAD3A4188ECB8900566F9F /* Nani */,
 				E9FAD3C3188ECB8900566F9F /* NaniTests */,
 				E9FAD39D188ECB8900566F9F /* Frameworks */,
@@ -101,6 +146,19 @@
 		E9FAD39D188ECB8900566F9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9FAD3ED188ECFB400566F9F /* SystemConfiguration.framework */,
+				E9FAD3EB188ECFAC00566F9F /* StoreKit.framework */,
+				E9FAD3E9188ECFA600566F9F /* Social.framework */,
+				E9FAD3E7188ECF9E00566F9F /* Security.framework */,
+				E9FAD3E5188ECF9700566F9F /* QuartzCore.framework */,
+				E9FAD3E3188ECF9100566F9F /* MobileCoreServices.framework */,
+				E9FAD3E1188ECF8A00566F9F /* libz.1.1.3.dylib */,
+				E9FAD3DF188ECF7C00566F9F /* libsqlite3.dylib */,
+				E9FAD3DD188ECF7000566F9F /* CoreLocation.framework */,
+				E9FAD3DB188ECF6100566F9F /* CFNetwork.framework */,
+				E9FAD3D9188ECF5A00566F9F /* AdSupport.framework */,
+				E9FAD3D7188ECF5300566F9F /* Accounts.framework */,
+				E9FAD3D5188ECF3F00566F9F /* AudioToolbox.framework */,
 				E9FAD39E188ECB8900566F9F /* Foundation.framework */,
 				E9FAD3A0188ECB8900566F9F /* CoreGraphics.framework */,
 				E9FAD3A2188ECB8900566F9F /* UIKit.framework */,
@@ -112,11 +170,11 @@
 		E9FAD3A4188ECB8900566F9F /* Nani */ = {
 			isa = PBXGroup;
 			children = (
+				E9FAD3F2188FDED600566F9F /* Controllers */,
+				E9FAD3F1188FDEC600566F9F /* Assetes */,
 				E9FAD3AD188ECB8900566F9F /* AppDelegate.h */,
 				E9FAD3AE188ECB8900566F9F /* AppDelegate.m */,
 				E9FAD3B0188ECB8900566F9F /* Main.storyboard */,
-				E9FAD3B3188ECB8900566F9F /* ViewController.h */,
-				E9FAD3B4188ECB8900566F9F /* ViewController.m */,
 				E9FAD3B6188ECB8900566F9F /* Images.xcassets */,
 				E9FAD3A5188ECB8900566F9F /* Supporting Files */,
 			);
@@ -150,6 +208,23 @@
 				E9FAD3C6188ECB8900566F9F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E9FAD3F1188FDEC600566F9F /* Assetes */ = {
+			isa = PBXGroup;
+			children = (
+				E9FAD3EF188FD07700566F9F /* Leather_Wallet_iPhone_Case_H_Cognac-glass-background.jpg */,
+			);
+			name = Assetes;
+			sourceTree = "<group>";
+		};
+		E9FAD3F2188FDED600566F9F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E9FAD3B3188ECB8900566F9F /* ViewController.h */,
+				E9FAD3B4188ECB8900566F9F /* ViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +274,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Pawel Ferens";
 				TargetAttributes = {
+					E9FAD39A188ECB8900566F9F = {
+						DevelopmentTeam = CMAH3J6A6N;
+					};
 					E9FAD3BB188ECB8900566F9F = {
 						TestTargetID = E9FAD39A188ECB8900566F9F;
 					};
@@ -230,6 +308,7 @@
 			files = (
 				E9FAD3B7188ECB8900566F9F /* Images.xcassets in Resources */,
 				E9FAD3A9188ECB8900566F9F /* InfoPlist.strings in Resources */,
+				E9FAD3F0188FD07700566F9F /* Leather_Wallet_iPhone_Case_H_Cognac-glass-background.jpg in Resources */,
 				E9FAD3B2188ECB8900566F9F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,10 +457,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/pferens/Documents/XCodeProjects/Nani,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nani/Nani-Prefix.pch";
 				INFOPLIST_FILE = "Nani/Nani-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -391,10 +477,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/pferens/Documents/XCodeProjects/Nani,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nani/Nani-Prefix.pch";
 				INFOPLIST_FILE = "Nani/Nani-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -460,6 +553,7 @@
 				E9FAD3CF188ECB8900566F9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E9FAD3D0188ECB8900566F9F /* Build configuration list for PBXNativeTarget "NaniTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +562,7 @@
 				E9FAD3D2188ECB8900566F9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
