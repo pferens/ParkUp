@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E9FAD39A188ECB8900566F9F"
                BuildableName = "Nani.app"
-               BlueprintName = "Nani"
-               ReferencedContainer = "container:Nani.xcodeproj">
+               BlueprintName = "ParkUp"
+               ReferencedContainer = "container:ParkUp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E9FAD3BB188ECB8900566F9F"
                BuildableName = "NaniTests.xctest"
-               BlueprintName = "NaniTests"
-               ReferencedContainer = "container:Nani.xcodeproj">
+               BlueprintName = "ParkUpTests"
+               ReferencedContainer = "container:ParkUp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E9FAD39A188ECB8900566F9F"
             BuildableName = "Nani.app"
-            BlueprintName = "Nani"
-            ReferencedContainer = "container:Nani.xcodeproj">
+            BlueprintName = "ParkUp"
+            ReferencedContainer = "container:ParkUp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E9FAD39A188ECB8900566F9F"
             BuildableName = "Nani.app"
-            BlueprintName = "Nani"
-            ReferencedContainer = "container:Nani.xcodeproj">
+            BlueprintName = "ParkUp"
+            ReferencedContainer = "container:ParkUp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E9FAD39A188ECB8900566F9F"
             BuildableName = "Nani.app"
-            BlueprintName = "Nani"
-            ReferencedContainer = "container:Nani.xcodeproj">
+            BlueprintName = "ParkUp"
+            ReferencedContainer = "container:ParkUp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

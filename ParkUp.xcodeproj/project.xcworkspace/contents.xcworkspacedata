@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Nani.xcodeproj">
+      location = "self:ParkUp.xcodeproj">
    </FileRef>
 </Workspace>
