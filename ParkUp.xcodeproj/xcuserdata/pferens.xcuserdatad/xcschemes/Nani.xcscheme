@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E9FAD39A188ECB8900566F9F"
-               BuildableName = "Nani.app"
+               BuildableName = "ParkUp.app"
                BlueprintName = "ParkUp"
                ReferencedContainer = "container:ParkUp.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E9FAD3BB188ECB8900566F9F"
-               BuildableName = "NaniTests.xctest"
+               BuildableName = "ParkUpTests.xctest"
                BlueprintName = "ParkUpTests"
                ReferencedContainer = "container:ParkUp.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E9FAD39A188ECB8900566F9F"
-            BuildableName = "Nani.app"
+            BuildableName = "ParkUp.app"
             BlueprintName = "ParkUp"
             ReferencedContainer = "container:ParkUp.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E9FAD39A188ECB8900566F9F"
-            BuildableName = "Nani.app"
+            BuildableName = "ParkUp.app"
             BlueprintName = "ParkUp"
             ReferencedContainer = "container:ParkUp.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E9FAD39A188ECB8900566F9F"
-            BuildableName = "Nani.app"
+            BuildableName = "ParkUp.app"
             BlueprintName = "ParkUp"
             ReferencedContainer = "container:ParkUp.xcodeproj">
          </BuildableReference>

@@ -11,4 +11,5 @@
 @interface Day : NSObject
 @property (nonatomic,strong)NSDate *date;
 @property (nonatomic,strong)NSMutableArray *reservations;
+@property (nonatomic)BOOL isEditing;
 @end

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>312BC4E1-5CF4-4867-B0BC-A9950214B916</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ParkUp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DC227357-E81E-4673-BDA9-3A1E2023BB46</key>
+		<string>https://github.com/pferens/ParkUp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ParkUp.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DC227357-E81E-4673-BDA9-3A1E2023BB46</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/pferens/ParkUp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DC227357-E81E-4673-BDA9-3A1E2023BB46</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DC227357-E81E-4673-BDA9-3A1E2023BB46</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ParkUp</string>
+		</dict>
+	</array>
+</dict>
+</plist>

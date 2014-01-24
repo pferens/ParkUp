@@ -110,6 +110,18 @@ int numberOfCards;
 
 
     }
+    
+    UIActivityIndicatorView *spinner =(UIActivityIndicatorView *)[cell viewWithTag:996];
+    if (day.isEditing) {
+        button.alpha = 0.0f;
+        spinner.alpha = 1.0f;
+        [spinner startAnimating];
+    }
+    else{
+        button.alpha = 1.0f;
+        spinner.alpha = 0.0f;
+        [spinner stopAnimating];
+    }
     return cell;
 }
 
@@ -119,16 +131,29 @@ int numberOfCards;
 {
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    UIActivityIndicatorView *spinner =(UIActivityIndicatorView *)[cell viewWithTag:996];
+    UIButton *button = (UIButton *)[cell viewWithTag:997];
+    button.alpha = 0.0f;
+    spinner.alpha = 1.0f;
+    [spinner startAnimating];
     
         bool shouldDoReservation = YES;
         if (indexPath != nil)
         {
             Day *day = [[ContentManager sharedInstance].days objectAtIndex:indexPath.row];
+            day.isEditing = YES;
                 for (PFObject *object in day.reservations) {
                     
                     if ([[[object objectForKey:@"user"]objectForKey:@"username"]isEqualToString:[PFUser currentUser].username]) {
+                        
                         shouldDoReservation = NO;
                         [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                            
+                            button.alpha = 1.0f;
+                            spinner.alpha = 0.0f;
+                            [spinner stopAnimating];
+                            day.isEditing = NO;
 
                             if (succeeded) {
                                 NSLog(@"deleted");
@@ -137,10 +162,12 @@ int numberOfCards;
                                 NSIndexPath* indexPath1 = [NSIndexPath indexPathForRow:indexPath.row inSection:0];
                                 NSArray* indexArray = [NSArray arrayWithObjects:indexPath1, nil];
                                 [self.tableView reloadRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationFade];
+
                             }
                             else
                             {
                                 NSLog(@"%@",[error description]);
+
 
                             }
 
@@ -156,7 +183,13 @@ int numberOfCards;
                 [reservation setObject:[PFUser currentUser] forKey:@"user"];
                 [reservation setObject:[[ContentManager sharedInstance].slots firstObject] forKey:@"slot"];
                 [reservation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    
+                    button.alpha = 1.0f;
+                    spinner.alpha = 0.0f;
+                    [spinner stopAnimating];
+                    day.isEditing = NO;
 
+                    
                     if (succeeded) {
                         
                         [[ConnectionManager sharedInstance]getDaysWithCompletionBlock:^(BOOL success) {
