@@ -29,11 +29,9 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Slot_reservation"];
     [query includeKey:@"user"];
     [query includeKey:@"slot"];
-
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
         if (!error) {
-            
             [ContentManager sharedInstance].days = [[NSMutableArray alloc]init];
 
             NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
@@ -50,11 +48,10 @@
             
             for(int i = 0; i < daysInMonth.length; i++)
             {
-                Day *day = [[Day alloc]init];
-                
                 NSDate *tempDate = [firstDayOfMonthDate dateByAddingTimeInterval:60*60*24*i];
+
+                Day *day = [[Day alloc]init];
                 day.date = tempDate;
-                
                 day.reservations = [[NSMutableArray alloc]init];
                 
                 NSCalendar *c = [NSCalendar currentCalendar];
@@ -68,20 +65,14 @@
                     if (actDay == resDay) {
                         [day.reservations addObject:res];
                     }
-                    
                 }
                 [[ContentManager sharedInstance].days addObject:day];
             }
-
-            
             completionBlock(YES);
             
-            
-        } else {
+        }
+        else {
             completionBlock(NO);
-            
-            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-            NSLog(@"Error: %@", errorString);
         }
     }];
 }
@@ -91,19 +82,14 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"Parking_slot"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
         if (!error) {
-            
             [ContentManager sharedInstance].slots = [[NSMutableArray alloc]initWithArray:objects];
             
             completionBlock(YES);
             
-            
         } else {
             completionBlock(NO);
-            
-            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-            NSLog(@"Error: %@", errorString);
+
         }
     }];
 }
