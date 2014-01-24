@@ -11,6 +11,9 @@
 		E9782AB3189144960034A2D0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9782AB2189144960034A2D0 /* MainViewController.m */; };
 		E9782AB518915FD10034A2D0 /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E9782AB418915FD10034A2D0 /* blue.png */; };
 		E9782AB7189160500034A2D0 /* white-shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = E9782AB6189160500034A2D0 /* white-shadow.png */; };
+		E9782AC21891668E0034A2D0 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9782AC11891668E0034A2D0 /* ConnectionManager.m */; };
+		E9782AC5189168530034A2D0 /* ContentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9782AC4189168530034A2D0 /* ContentManager.m */; };
+		E9782ADA1892781E0034A2D0 /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = E9782AD91892781E0034A2D0 /* Day.m */; };
 		E9FAD39F188ECB8900566F9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD39E188ECB8900566F9F /* Foundation.framework */; };
 		E9FAD3A1188ECB8900566F9F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3A0188ECB8900566F9F /* CoreGraphics.framework */; };
 		E9FAD3A3188ECB8900566F9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3A2188ECB8900566F9F /* UIKit.framework */; };
@@ -58,6 +61,12 @@
 		E9782AB2189144960034A2D0 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		E9782AB418915FD10034A2D0 /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue.png; sourceTree = "<group>"; };
 		E9782AB6189160500034A2D0 /* white-shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-shadow.png"; sourceTree = "<group>"; };
+		E9782AC01891668E0034A2D0 /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManager.h; sourceTree = "<group>"; };
+		E9782AC11891668E0034A2D0 /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManager.m; sourceTree = "<group>"; };
+		E9782AC3189168530034A2D0 /* ContentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentManager.h; sourceTree = "<group>"; };
+		E9782AC4189168530034A2D0 /* ContentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentManager.m; sourceTree = "<group>"; };
+		E9782AD81892781E0034A2D0 /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
+		E9782AD91892781E0034A2D0 /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
 		E9FAD39B188ECB8900566F9F /* ParkUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9FAD39E188ECB8900566F9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E9FAD3A0188ECB8900566F9F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -153,6 +162,26 @@
 			name = Calendar;
 			sourceTree = "<group>";
 		};
+		E9782AB8189164860034A2D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9782AD81892781E0034A2D0 /* Day.h */,
+				E9782AD91892781E0034A2D0 /* Day.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E9782ABF189166740034A2D0 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E9782AC01891668E0034A2D0 /* ConnectionManager.h */,
+				E9782AC11891668E0034A2D0 /* ConnectionManager.m */,
+				E9782AC3189168530034A2D0 /* ContentManager.h */,
+				E9782AC4189168530034A2D0 /* ContentManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		E9FAD392188ECB8900566F9F = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +229,8 @@
 		E9FAD3A4188ECB8900566F9F /* ParkUp */ = {
 			isa = PBXGroup;
 			children = (
+				E9782ABF189166740034A2D0 /* Managers */,
+				E9782AB8189164860034A2D0 /* Model */,
 				E9FAD3F2188FDED600566F9F /* Controllers */,
 				E9FAD3F1188FDEC600566F9F /* Assetes */,
 				E9FAD3AD188ECB8900566F9F /* AppDelegate.h */,
@@ -365,9 +396,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9FAD3F51890133300566F9F /* SignUpControllerViewController.m in Sources */,
+				E9782AC21891668E0034A2D0 /* ConnectionManager.m in Sources */,
+				E9782ADA1892781E0034A2D0 /* Day.m in Sources */,
 				E9FAD3B5188ECB8900566F9F /* ViewController.m in Sources */,
 				E9FAD3AF188ECB8900566F9F /* AppDelegate.m in Sources */,
 				E9782AB3189144960034A2D0 /* MainViewController.m in Sources */,
+				E9782AC5189168530034A2D0 /* ContentManager.m in Sources */,
 				E9FAD3AB188ECB8900566F9F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

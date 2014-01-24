@@ -42,7 +42,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.view endEditing:YES];
 
+}
 #pragma mark -UIViewDelegate
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{

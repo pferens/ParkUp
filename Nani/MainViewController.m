@@ -7,22 +7,25 @@
 //
 
 #import "MainViewController.h"
-
+#import "ConnectionManager.h"
+#import "ContentManager.h"
+#import "Day.h"
 @interface MainViewController ()
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UIButton *park1Button;
-@property (strong, nonatomic) IBOutlet UIButton *park2Button;
+@property (nonatomic)NSDate *date;
+
 - (IBAction)logOutButtonAction:(id)sender;
 
 @end
 
 @implementation MainViewController
 
+int numberOfCards;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -30,32 +33,37 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    numberOfCards = 0;
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
     self.navigationController.navigationBarHidden = NO;
     [self.navigationItem setHidesBackButton:YES animated:YES];
-
-	// Do any additional setup after loading the view.
 }
 
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    self.park1Button.backgroundColor = [UIColor redColor];
-    self.park2Button.backgroundColor = [UIColor greenColor];
-}
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.date = [NSDate new];
+    
+    [[ConnectionManager sharedInstance]getSlotsWithCompletionBlock:^(BOOL success) {
+        if (success) {
+            numberOfCards = [ContentManager sharedInstance].slots.count;
+            [[ConnectionManager sharedInstance]getDaysWithCompletionBlock:^(BOOL success) {
+                [self.tableView reloadData];
+            }];
+        }
+    }];
+    [self.tableView reloadData];
 }
 
 #pragma mark UITableViewDelegate
 
-- (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return  [ContentManager sharedInstance].days.count;
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -67,7 +75,111 @@
 {
     static NSString *CellIdentifier = @"dayCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    Day *day = [[ContentManager sharedInstance].days objectAtIndex:indexPath.row];
+
+    NSCalendar *c = [NSCalendar currentCalendar];
+    NSDateComponents* components = [c components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:day.date];
+    
+    UILabel *numberLabel = (UILabel *)[cell viewWithTag:999];
+    numberLabel.text = [NSString stringWithFormat:@"%d",[components day]];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEEE"];
+    
+    UILabel *dayLabel = (UILabel *)[cell viewWithTag:998];
+    dayLabel.text = [NSString stringWithFormat:@"%@",[dateFormatter stringFromDate:day.date]];
+    
+    UIButton *button = (UIButton *)[cell viewWithTag:997];
+    [button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [button setTitle:@"Reserve place" forState:UIControlStateNormal];
+
+    for (PFObject *object in day.reservations) {
+        
+        if ([[[object objectForKey:@"user"]objectForKey:@"username"]isEqualToString:[PFUser currentUser].username]) {
+            
+            [button setTitle:@"Reserved" forState:UIControlStateNormal];
+
+        }
+        else if (day.reservations.count == [ContentManager sharedInstance].slots.count) {
+
+                [button setTitle:@"All slots taken" forState:UIControlStateNormal];
+            
+        }
+
+
+    }
     return cell;
+}
+
+#pragma mark -Button actions
+
+- (void)buttonTapped:(id)sender
+{
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+        bool shouldDoReservation = YES;
+        if (indexPath != nil)
+        {
+            Day *day = [[ContentManager sharedInstance].days objectAtIndex:indexPath.row];
+                for (PFObject *object in day.reservations) {
+                    
+                    if ([[[object objectForKey:@"user"]objectForKey:@"username"]isEqualToString:[PFUser currentUser].username]) {
+                        shouldDoReservation = NO;
+                        [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+
+                            if (succeeded) {
+                                NSLog(@"deleted");
+                                [day.reservations removeObject:object];
+                                
+                                NSIndexPath* indexPath1 = [NSIndexPath indexPathForRow:indexPath.row inSection:0];
+                                NSArray* indexArray = [NSArray arrayWithObjects:indexPath1, nil];
+                                [self.tableView reloadRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationFade];
+                            }
+                            else
+                            {
+                                NSLog(@"%@",[error description]);
+
+                            }
+
+                        }];
+                    }
+
+                }
+            
+            if (shouldDoReservation) {
+                PFObject *reservation = [PFObject objectWithClassName:@"Slot_reservation"];
+                [reservation setObject:day.date forKey:@"date"];
+                
+                [reservation setObject:[PFUser currentUser] forKey:@"user"];
+                [reservation setObject:[[ContentManager sharedInstance].slots firstObject] forKey:@"slot"];
+                [reservation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+
+                    if (succeeded) {
+                        
+                        [[ConnectionManager sharedInstance]getDaysWithCompletionBlock:^(BOOL success) {
+                            
+                            NSIndexPath* indexPath1 = [NSIndexPath indexPathForRow:indexPath.row inSection:0];
+                            NSArray* indexArray = [NSArray arrayWithObjects:indexPath1, nil];
+                            [self.tableView reloadRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationFade];
+
+                        }];
+                        
+                    }
+                    else
+                    {
+                        NSLog(@"%@",[error description]);
+
+  
+                    }
+                    
+                }];
+            }
+
+        }
+
 }
 - (IBAction)logOutButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

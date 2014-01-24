@@ -27,9 +27,6 @@ bool isKeyboardMoved;
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
 
-   
-
-
     self.loginTextField.delegate = self;
     self.passwordTextField.delegate = self;
     
@@ -54,6 +51,7 @@ bool isKeyboardMoved;
 
 -(void)viewDidDisappear:(BOOL)animated
 {
+    
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
