@@ -14,7 +14,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic)NSDate *date;
-
+@property (nonatomic,strong)UIRefreshControl *refreshControl;
 - (IBAction)logOutButtonAction:(id)sender;
 
 @end
@@ -35,9 +35,14 @@ int numberOfCards;
     [super viewDidLoad];
     numberOfCards = 0;
     
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:refreshControl];
+    
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
+    self.refreshControl = refreshControl;
     self.navigationController.navigationBarHidden = NO;
     [self.navigationItem setHidesBackButton:YES animated:YES];
 }
@@ -47,15 +52,7 @@ int numberOfCards;
 {
     self.date = [NSDate new];
     
-    [[ConnectionManager sharedInstance]getSlotsWithCompletionBlock:^(BOOL success) {
-        if (success) {
-            numberOfCards = [ContentManager sharedInstance].slots.count;
-            [[ConnectionManager sharedInstance]getDaysWithCompletionBlock:^(BOOL success) {
-                [self.tableView reloadData];
-            }];
-        }
-    }];
-    [self.tableView reloadData];
+    [self handleRefresh:nil];
 }
 
 #pragma mark UITableViewDelegate
@@ -131,6 +128,7 @@ int numberOfCards;
 {
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     UIActivityIndicatorView *spinner =(UIActivityIndicatorView *)[cell viewWithTag:996];
     UIButton *button = (UIButton *)[cell viewWithTag:997];
@@ -166,12 +164,24 @@ int numberOfCards;
                             }
                             else
                             {
-                                NSLog(@"%@",[error description]);
-
+                                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Something went wrong."
+                                                                               message:[[error userInfo]objectForKey:@"error"]
+                                                                              delegate:nil
+                                                                     cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+                                [alert show];
 
                             }
 
                         }];
+                    }
+                    else if (day.reservations.count == [ContentManager sharedInstance].slots.count) {
+                        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Something went wrong." message:@"There is no place for this day anymore" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+                        [alert show];
+                        shouldDoReservation = NO;
+                        button.alpha = 1.0f;
+                        spinner.alpha = 0.0f;
+                        [spinner stopAnimating];
+                        day.isEditing = NO;
                     }
 
                 }
@@ -204,8 +214,8 @@ int numberOfCards;
                     else
                     {
                         NSLog(@"%@",[error description]);
-
-  
+                        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Something went wrong." message:[[error userInfo]objectForKey:@"error"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+                        [alert show];
                     }
                     
                 }];
@@ -216,5 +226,21 @@ int numberOfCards;
 }
 - (IBAction)logOutButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)handleRefresh:(id)sender{
+    [[ConnectionManager sharedInstance]getSlotsWithCompletionBlock:^(BOOL success) {
+        if (success) {
+            numberOfCards = [ContentManager sharedInstance].slots.count;
+            [[ConnectionManager sharedInstance]getDaysWithCompletionBlock:^(BOOL success) {
+                [self.tableView reloadData];
+                [self.refreshControl endRefreshing];
+            }];
+        }
+        else{
+            
+            [self.refreshControl endRefreshing];
+        }
+    }];
 }
 @end
