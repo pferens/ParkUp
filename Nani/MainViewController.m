@@ -10,6 +10,7 @@
 #import "ConnectionManager.h"
 #import "ContentManager.h"
 #import "Day.h"
+#import "CustomDayCell.h"
 @interface MainViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -71,23 +72,21 @@ int numberOfCards;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"dayCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    CustomDayCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     Day *day = [[ContentManager sharedInstance].days objectAtIndex:indexPath.row];
 
     NSCalendar *c = [NSCalendar currentCalendar];
     NSDateComponents* components = [c components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:day.date];
     
-    UILabel *numberLabel = (UILabel *)[cell viewWithTag:999];
-    numberLabel.text = [NSString stringWithFormat:@"%d",[components day]];
+    cell.dayNumber.text = [NSString stringWithFormat:@"%d",[components day]];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEEE"];
     
-    UILabel *dayLabel = (UILabel *)[cell viewWithTag:998];
-    dayLabel.text = [NSString stringWithFormat:@"%@",[dateFormatter stringFromDate:day.date]];
+    cell.dayName.text = [NSString stringWithFormat:@"%@",[dateFormatter stringFromDate:day.date]];
     
-    UIButton *button = (UIButton *)[cell viewWithTag:997];
+    UIButton *button = cell.button;
     [button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     
     [button setTitle:@"Reserve place" forState:UIControlStateNormal];
@@ -129,9 +128,10 @@ int numberOfCards;
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
     
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    UIActivityIndicatorView *spinner =(UIActivityIndicatorView *)[cell viewWithTag:996];
-    UIButton *button = (UIButton *)[cell viewWithTag:997];
+    CustomDayCell *cell = (CustomDayCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    UIActivityIndicatorView *spinner =cell.spinner;
+    UIButton *button = cell.button;
+    
     button.alpha = 0.0f;
     spinner.alpha = 1.0f;
     [spinner startAnimating];

@@ -15,6 +15,7 @@
 		E9782AC5189168530034A2D0 /* ContentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9782AC4189168530034A2D0 /* ContentManager.m */; };
 		E9782ADA1892781E0034A2D0 /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = E9782AD91892781E0034A2D0 /* Day.m */; };
 		E9F9ECC51892FC6D006B76E8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9F9ECC41892FC6D006B76E8 /* Parse.framework */; };
+		E9F9ECC918932211006B76E8 /* CustomDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F9ECC818932211006B76E8 /* CustomDayCell.m */; };
 		E9FAD39F188ECB8900566F9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD39E188ECB8900566F9F /* Foundation.framework */; };
 		E9FAD3A1188ECB8900566F9F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3A0188ECB8900566F9F /* CoreGraphics.framework */; };
 		E9FAD3A3188ECB8900566F9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FAD3A2188ECB8900566F9F /* UIKit.framework */; };
@@ -68,6 +69,8 @@
 		E9782AD81892781E0034A2D0 /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
 		E9782AD91892781E0034A2D0 /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
 		E9F9ECC41892FC6D006B76E8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		E9F9ECC718932211006B76E8 /* CustomDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDayCell.h; sourceTree = "<group>"; };
+		E9F9ECC818932211006B76E8 /* CustomDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDayCell.m; sourceTree = "<group>"; };
 		E9FAD39B188ECB8900566F9F /* ParkUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9FAD39E188ECB8900566F9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E9FAD3A0188ECB8900566F9F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -182,6 +185,15 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
+		E9F9ECC6189321E9006B76E8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E9F9ECC718932211006B76E8 /* CustomDayCell.h */,
+				E9F9ECC818932211006B76E8 /* CustomDayCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		E9FAD392188ECB8900566F9F = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +241,7 @@
 		E9FAD3A4188ECB8900566F9F /* ParkUp */ = {
 			isa = PBXGroup;
 			children = (
+				E9F9ECC6189321E9006B76E8 /* Views */,
 				E9782ABF189166740034A2D0 /* Managers */,
 				E9782AB8189164860034A2D0 /* Model */,
 				E9FAD3F2188FDED600566F9F /* Controllers */,
@@ -398,6 +411,7 @@
 				E9FAD3F51890133300566F9F /* SignUpControllerViewController.m in Sources */,
 				E9782AC21891668E0034A2D0 /* ConnectionManager.m in Sources */,
 				E9782ADA1892781E0034A2D0 /* Day.m in Sources */,
+				E9F9ECC918932211006B76E8 /* CustomDayCell.m in Sources */,
 				E9FAD3B5188ECB8900566F9F /* ViewController.m in Sources */,
 				E9FAD3AF188ECB8900566F9F /* AppDelegate.m in Sources */,
 				E9782AB3189144960034A2D0 /* MainViewController.m in Sources */,

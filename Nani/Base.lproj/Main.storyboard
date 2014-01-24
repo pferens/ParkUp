@@ -155,7 +155,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.93580163039999997" green="0.93580163039999997" blue="0.93580163039999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dayCell" rowHeight="80" id="KV8-Ix-hpv">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dayCell" rowHeight="80" id="KV8-Ix-hpv" customClass="CustomDayCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KV8-Ix-hpv" id="LBL-j3-1sp">
@@ -184,7 +184,7 @@
                                                     <rect key="frame" x="180" y="8" width="120" height="59"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                    <state key="normal" backgroundImage="white-shadow.png">
+                                                    <state key="normal">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -197,6 +197,12 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93580163039999997" green="0.93580163039999997" blue="0.93580163039999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="button" destination="XPy-d5-Hde" id="p0L-n5-DAf"/>
+                                            <outlet property="dayName" destination="Xa0-83-XWd" id="xb5-F0-TNu"/>
+                                            <outlet property="dayNumber" destination="DW6-Rf-zGc" id="Yqg-nP-G3R"/>
+                                            <outlet property="spinner" destination="zH5-uj-v3R" id="D5K-mv-j9N"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
