@@ -16,13 +16,14 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic)NSDate *date;
 @property (nonatomic,strong)UIRefreshControl *refreshControl;
+
 - (IBAction)logOutButtonAction:(id)sender;
 
 @end
 
 @implementation MainViewController
 
-int numberOfCards;
+NSDateFormatter *dateFormatter;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -35,13 +36,17 @@ int numberOfCards;
 {
     [super viewDidLoad];
     
-    numberOfCards = 0;
+    //
+    // initialize date formatter only once, takes a lot of time
+    //
     
+    dateFormatter = [[NSDateFormatter alloc] init];
+
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
+    [refreshControl addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:refreshControl];
     self.refreshControl = refreshControl;
     
@@ -54,7 +59,8 @@ int numberOfCards;
 {
     self.date = [NSDate new];
     
-    [self handleRefresh:nil];
+    [self handleRefresh];
+    
 }
 
 #pragma mark UITableViewDelegate
@@ -80,6 +86,7 @@ int numberOfCards;
     //
     // set day number
     //
+    
     NSCalendar *c = [NSCalendar currentCalendar];
     NSDateComponents* components = [c components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:day.date];
     cell.dayNumber.text = [NSString stringWithFormat:@"%d",[components day]];
@@ -88,7 +95,6 @@ int numberOfCards;
     // set day name
     //
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEEE"];
     cell.dayName.text = [NSString stringWithFormat:@"%@",[dateFormatter stringFromDate:day.date]];
     
@@ -232,14 +238,20 @@ int numberOfCards;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)handleRefresh:(id)sender{
+- (void)handleRefresh{
     [[ConnectionManager sharedInstance]getSlotsWithCompletionBlock:^(BOOL success) {
         if (success) {
-            numberOfCards = [ContentManager sharedInstance].slots.count;
             [[ConnectionManager sharedInstance]getDaysWithCompletionBlock:^(BOOL success) {
                 [self.tableView reloadData];
                 [self.refreshControl endRefreshing];
-            }];
+                
+                NSCalendar *c = [NSCalendar currentCalendar];
+                NSDateComponents* components = [c components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self.date];
+                
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[components day]-1 inSection:0];
+                [self.tableView scrollToRowAtIndexPath:indexPath
+                                     atScrollPosition:UITableViewScrollPositionTop
+                                             animated:YES];            }];
         }
         else{
             

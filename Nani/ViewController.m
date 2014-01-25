@@ -19,11 +19,12 @@
 
 @implementation ViewController
 bool isKeyboardMoved;
-
+int moveDestination;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    moveDestination = 175;
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
 
@@ -67,17 +68,17 @@ bool isKeyboardMoved;
 {
         [UIView animateWithDuration:0.3f animations:^{
             self.loginTextField.frame = CGRectMake(self.loginTextField.frame.origin.x,
-                                                   self.loginTextField.frame.origin.y-200,
+                                                   self.loginTextField.frame.origin.y-moveDestination,
                                                    self.loginTextField.frame.size.width,
                                                    self.loginTextField.frame.size.height);
             
             self.passwordTextField.frame = CGRectMake(self.passwordTextField.frame.origin.x,
-                                                      self.passwordTextField.frame.origin.y-200,
+                                                      self.passwordTextField.frame.origin.y-moveDestination,
                                                       self.passwordTextField.frame.size.width,
                                                       self.passwordTextField.frame.size.height);
             
             self.loginButton.frame = CGRectMake(self.loginButton.frame.origin.x,
-                                                self.loginButton.frame.origin.y-200,
+                                                self.loginButton.frame.origin.y-moveDestination,
                                                 self.loginButton.frame.size.width,
                                                 self.loginButton.frame.size.height);
             
@@ -90,17 +91,17 @@ bool isKeyboardMoved;
 {
         [UIView animateWithDuration:0.3f animations:^{
             self.loginTextField.frame = CGRectMake(self.loginTextField.frame.origin.x,
-                                                   self.loginTextField.frame.origin.y+200,
+                                                   self.loginTextField.frame.origin.y+moveDestination,
                                                    self.loginTextField.frame.size.width,
                                                    self.loginTextField.frame.size.height);
             
             self.passwordTextField.frame = CGRectMake(self.passwordTextField.frame.origin.x,
-                                                      self.passwordTextField.frame.origin.y+200,
+                                                      self.passwordTextField.frame.origin.y+moveDestination,
                                                       self.passwordTextField.frame.size.width,
                                                       self.passwordTextField.frame.size.height);
             
             self.loginButton.frame = CGRectMake(self.loginButton.frame.origin.x,
-                                                self.loginButton.frame.origin.y+200,
+                                                self.loginButton.frame.origin.y+moveDestination,
                                                 self.loginButton.frame.size.width,
                                                 self.loginButton.frame.size.height);
             
