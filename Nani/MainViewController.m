@@ -14,6 +14,7 @@
 @interface MainViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *bigSpinner;
 @property (nonatomic)NSDate *date;
 @property (nonatomic,strong)UIRefreshControl *refreshControl;
 
@@ -42,6 +43,8 @@ NSDateFormatter *dateFormatter;
     
     dateFormatter = [[NSDateFormatter alloc] init];
 
+    [self.bigSpinner startAnimating];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -61,8 +64,9 @@ NSDateFormatter *dateFormatter;
     
     [self handleRefresh];
     
+    self.bigSpinner.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
+    
 }
-
 #pragma mark UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -245,8 +249,13 @@ NSDateFormatter *dateFormatter;
                 [self.tableView reloadData];
                 [self.refreshControl endRefreshing];
                 
+                self.bigSpinner.alpha = 0.0f;
+                [self.bigSpinner stopAnimating];
                 NSCalendar *c = [NSCalendar currentCalendar];
-                NSDateComponents* components = [c components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self.date];
+                NSDateComponents* components = [c components:NSYearCalendarUnit|
+                                                NSMonthCalendarUnit|
+                                                NSDayCalendarUnit
+                                                    fromDate:self.date];
                 
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[components day]-1 inSection:0];
                 [self.tableView scrollToRowAtIndexPath:indexPath

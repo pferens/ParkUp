@@ -206,6 +206,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9JN-Yq-yH3">
+                                <rect key="frame" x="0.0" y="121" width="320" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.93580163039999997" green="0.93580163039999997" blue="0.93580163039999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -222,6 +227,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="bigSpinner" destination="9JN-Yq-yH3" id="mhY-Sn-q0p"/>
                         <outlet property="tableView" destination="QDL-UW-0sp" id="vKe-R1-Gnv"/>
                     </connections>
                 </viewController>
